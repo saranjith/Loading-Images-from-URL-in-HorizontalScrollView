@@ -3,7 +3,7 @@
  * 
  */
 
-package com.saran.azinovatest;
+package com.saran.horizontalscrollview;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*	This custom library is used for setting the content of the imageView from URL.
- *  https://github.com/koush/UrlImageViewHelper
- */
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 public class MainActivity extends Activity {
@@ -38,9 +35,11 @@ public class MainActivity extends Activity {
 		imageList = new ArrayList<String>();
 		captionList = new ArrayList<String>();
 		
-		/*I'm assuming that I've already downloaded the data 
+		/* 
+		 * I'm assuming that I've already downloaded the data 
 		 * through the API and stored it into two arraylists, 
 		 * "captionList" and "imageList".
+		 * 
 		 */
 
 		captionList.add("Date");
@@ -65,7 +64,7 @@ public class MainActivity extends Activity {
 			TextView caption = (TextView) v.findViewById(R.id.textView_caption);
 			caption.setText(captionList.get(i));
 			ImageView singleImage = (ImageView) v.findViewById(R.id.imageView_mockgalleryItem);
-			UrlImageViewHelper.setUrlDrawable(singleImage, imageList.get(i), R.drawable.ic_launcher);
+			UrlImageViewHelper.setUrlDrawable(singleImage, imageList.get(i), R.drawable.ic_launcher); //setting the contents for the image, with launcher icon as the stub
 			((ViewGroup) mockGalleryView).addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
 			v.setOnClickListener(new OnClickListener() {

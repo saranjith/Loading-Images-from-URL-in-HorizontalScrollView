@@ -1,7 +1,7 @@
-package com.saran.azinovatest;
+package com.saran.horizontalscrollview;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class SecondActivity extends Activity {

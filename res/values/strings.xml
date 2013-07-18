@@ -4,5 +4,6 @@
     <string name="app_name">AzinovaTest</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_second">SecondActivity</string>
-	<string name="content">I have implemented the rest of the functionalities in the test itself. This is just an implementation of the HorizontalScrollView which I had implemented using a custom UI Component, by inflating the layout.</string>
+    <string name="content">This is just an implementation of the HorizontalScrollView which I had implemented using a custom UI Component, by inflating the layout.</string>
+
 </resources>
