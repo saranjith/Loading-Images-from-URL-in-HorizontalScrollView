@@ -24,10 +24,14 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 public class MainActivity extends Activity {
 
-	LinearLayout mockGalleryView;
-	ArrayList<String> imageList, captionList;
-	Intent secondActivity;
-
+	private LinearLayout mockGalleryView;
+	private ArrayList<String> imageList, captionList;
+	private Intent secondActivity;
+	private LayoutInflater vi; 
+	private View v;
+	private TextView caption; 
+	private ImageView singleImage;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,16 +58,16 @@ public class MainActivity extends Activity {
 
 		mockGalleryView = (LinearLayout) findViewById(R.id.mockGallery);
 
-		setView(captionList, imageList);
+		setView(captionList, imageList);//calling the method to set the view
 	}
 
 	public void setView(ArrayList<String> captionList, ArrayList<String> imageList) {
 		for (int i = 0; i < imageList.size(); i++) {
-			LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			final View v = vi.inflate(R.layout.item_mockgallery, null);
-			TextView caption = (TextView) v.findViewById(R.id.textView_caption);
+			vi= (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			v = vi.inflate(R.layout.item_mockgallery, null);
+			caption = (TextView) v.findViewById(R.id.textView_caption);
 			caption.setText(captionList.get(i));
-			ImageView singleImage = (ImageView) v.findViewById(R.id.imageView_mockgalleryItem);
+			singleImage = (ImageView) v.findViewById(R.id.imageView_mockgalleryItem);
 			UrlImageViewHelper.setUrlDrawable(singleImage, imageList.get(i), R.drawable.ic_launcher); //setting the contents for the image, with launcher icon as the stub
 			((ViewGroup) mockGalleryView).addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
